@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 简明指南与使用提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2.5rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 880px;
+            width: 100%;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+            transition: box-shadow 0.25s;
+        }
+
+        .hero:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1a2634;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: #5d6b7c;
+            border-left: 3px solid #b5c2cf;
+            padding-left: 1rem;
+            margin: 0.8rem 0 1.6rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #2f3e4e;
+            max-width: 680px;
+        }
+
+        /* 通用卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9edf1;
+            margin-bottom: 1.8rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1c2938;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #253544;
+            margin: 1.4rem 0 0.6rem;
+        }
+
+        .card p, .card li {
+            color: #2f3f50;
+            font-size: 0.98rem;
+        }
+
+        .card ul {
+            padding-left: 1.4rem;
+            margin: 0.8rem 0 0.2rem;
+        }
+
+        .card li {
+            margin-bottom: 0.45rem;
+        }
+
+        /* 亮点网格 */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 0.6rem 0 0.2rem;
+        }
+
+        .highlight-item {
+            background: #f7f9fb;
+            padding: 0.9rem 1.1rem;
+            border-radius: 14px;
+            border: 1px solid #e9edf2;
+            font-weight: 450;
+            color: #1f3142;
+        }
+
+        /* 使用建议 / 场景 */
+        .advice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 1rem 0 0.2rem;
+        }
+
+        .advice-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.1rem 1.2rem;
+            border: 1px solid #e3e9f0;
+        }
+
+        .advice-item strong {
+            display: block;
+            font-weight: 550;
+            margin-bottom: 0.3rem;
+            color: #1b2a3b;
+        }
+
+        .advice-item span {
+            font-size: 0.92rem;
+            color: #415363;
+        }
+
+        /* 提示/FAQ */
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #edf1f5;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1e2e40;
+        }
+
+        .faq-item .a {
+            margin-top: 0.2rem;
+            font-size: 0.93rem;
+            color: #415463;
+        }
+
+        .note-box {
+            background: #f4f7fa;
+            border-left: 3px solid #b0becb;
+            padding: 1rem 1.4rem;
+            border-radius: 10px;
+            margin: 1.2rem 0 0.4rem;
+            font-size: 0.95rem;
+            color: #2b3b4d;
+        }
+
+        .note-box a {
+            color: #1a2a3c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b5c4d2;
+        }
+
+        .note-box a:hover {
+            color: #000;
+            text-decoration-color: #7a8a9c;
+        }
+
+        /* 链接（除note-box外） */
+        .inline-link {
+            color: #1e2e40;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #bcc9d6;
+            transition: color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #0c1a28;
+            text-decoration-color: #7a8b9e;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 2.2rem 0 0.5rem;
+            color: #647586;
+            font-size: 0.85rem;
+            border-top: 1px solid #e3e9ef;
+            margin-top: 0.8rem;
+        }
+
+        .footer a {
+            color: #4b6174;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+            .hero {
+                padding: 1.8rem 1.4rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+            .advice-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero 摘要 -->
+        <div class="hero">
+            <h1>华体会 · 产品说明</h1>
+            <div class="tagline">一份简明指南，一些使用提醒</div>
+            <p>
+                <a href="https://fetch-hth.com.cn" class="inline-link" style="font-weight: 450;">华体会</a> 
+                是一套面向内容与活动场景的轻量工具，围绕信息呈现与辅助互动而设计。它不追求复杂功能，而是希望给日常使用提供清晰、直接的体验。以下从几个侧面做简要介绍，同时也包含一条访问提醒。
+            </p>
+        </div>
+
+        <!-- 亮点卡片 -->
+        <div class="card">
+            <h2>几个值得留意的特点</h2>
+            <div class="highlights">
+                <div class="highlight-item">🧩 模块化思路，不捆绑流程</div>
+                <div class="highlight-item">📦 内容与展示逻辑相对独立</div>
+                <div class="highlight-item">⚙️ 配置灵活，适配常见展示场景</div>
+                <div class="highlight-item">🔒 基础安全与权限模型内置</div>
+            </div>
+            <p style="margin-top: 1rem;">
+                每个特点背后是实际使用中反复打磨的细节。例如模块化并非追求万能，而是让使用者能按需组合，避免冗余。
+            </p>
+        </div>
+
+        <!-- 使用建议 & 场景 -->
+        <div class="card">
+            <h2>使用建议与典型场景</h2>
+            <p style="margin-bottom: 0.2rem;">
+                以下是一些常见的应用方向，供你参考。每个场景都来自真实反馈，但具体效果仍取决于实际配置。
+            </p>
+            <div class="advice-grid">
+                <div class="advice-item">
+                    <strong>📋 信息聚合页</strong>
+                    <span>将分散的通知、公告或资源集中在一个面板，配合简单筛选。</span>
+                </div>
+                <div class="advice-item">
+                    <strong>📊 轻量看板</strong>
+                    <span>展示关键指标或进度，适合内部团队或小型活动使用。</span>
+                </div>
+                <div class="advice-item">
+                    <strong>🧭 引导与说明</strong>
+                    <span>制作步骤指引或功能说明，结构清晰，不干扰主流程。</span>
+                </div>
+                <div class="advice-item">
+                    <strong>🔐 权限内容展示</strong>
+                    <span>结合内置权限模型，对不同角色展示不同内容区块。</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 可信但克制的访问说明 -->
+        <div class="card">
+            <h2>关于访问的一点说明</h2>
+            <p>
+                在开始使用前，有两点值得提前了解：第一，平台保持相对稳定的迭代节奏，部分边缘功能可能调整，建议定期关注更新说明；第二，数据与内容归属由使用者自行管理，相关服务的可用性取决于运行环境。
+            </p>
+            <p style="margin-top: 0.7rem;">
+                如果你希望进一步了解或直接体验，可以前往 
+                <a href="https://fetch-hth.com.cn" class="inline-link">华体会</a> 
+                查看详细信息。那里有更完整的文档、常见问题以及社区讨论。建议根据自身需求选择合适的接入方式。
+            </p>
+            <div class="note-box">
+                💡 <strong>提醒：</strong> 任何工具都有其适用边界。<a href="https://fetch-hth.com.cn">华体会</a> 也不例外。在投入正式使用前，建议先在测试环境中验证核心流程，确保符合你的预期。保持理性评估，避免盲目依赖。
+            </div>
+        </div>
+
+        <!-- FAQ 摘要卡片 -->
+        <div class="card">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-item">
+                <div class="q">—— 是否需要注册或付费？</div>
+                <div class="a">基础功能无需付费，部分高级或专属场景会涉及订阅。具体以网站页面说明为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">—— 可以与其他系统集成吗？</div>
+                <div class="a">支持标准 Webhook 与部分 API 对接，文档中有详细接口说明。集成复杂度取决于目标系统。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">—— 数据如何保障？</div>
+                <div class="a">传输层加密、账号权限隔离、定期备份建议。但任何系统都无法承诺绝对安全，请做好自身数据管理。</div>
+            </div>
+            <div class="faq-item" style="border: none;">
+                <div class="q">—— 有使用门槛吗？</div>
+                <div class="a">基本操作无需技术背景，但自定义配置或集成可能需要一定基础。社区和文档可提供支持。</div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p style="margin-bottom: 0.3rem;">—— 页面内容仅作产品介绍，不构成任何承诺 ——</p>
+            <p>
+                更多信息请直接访问 
+                <a href="https://fetch-hth.com.cn" style="font-weight: 450;">华体会</a> 
+                · 理性选择，合理使用
+            </p>
+        </div>
+    </div>
+</body>
+</html>
